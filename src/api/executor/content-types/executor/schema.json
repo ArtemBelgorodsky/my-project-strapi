@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "executors",
+  "info": {
+    "singularName": "executor",
+    "pluralName": "executors",
+    "displayName": "Executor",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "username": {
+      "type": "string",
+      "required": true
+    },
+    "order": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::order.order",
+      "mappedBy": "executor"
+    },
+    "work_cards": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::work-card.work-card",
+      "mappedBy": "executor"
+    }
+  }
+}

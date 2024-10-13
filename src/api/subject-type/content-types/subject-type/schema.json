@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "subject_types",
+  "info": {
+    "singularName": "subject-type",
+    "pluralName": "subject-types",
+    "displayName": "subjectType"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "work_card": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::work-card.work-card",
+      "inversedBy": "subject_types"
+    }
+  }
+}

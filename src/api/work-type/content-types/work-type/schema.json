@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "work_types",
+  "info": {
+    "singularName": "work-type",
+    "pluralName": "work-types",
+    "displayName": "workType"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "work_card": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::work-card.work-card",
+      "mappedBy": "work_type"
+    }
+  }
+}

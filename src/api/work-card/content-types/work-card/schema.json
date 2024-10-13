@@ -1,0 +1,78 @@
+{
+  "kind": "collectionType",
+  "collectionName": "work_cards",
+  "info": {
+    "singularName": "work-card",
+    "pluralName": "work-cards",
+    "displayName": "workCard",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "publicatedAt": {
+      "type": "datetime",
+      "required": true
+    },
+    "finishedIn": {
+      "type": "date",
+      "required": true
+    },
+    "documents": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "price": {
+      "type": "string",
+      "default": "По договоренности",
+      "required": true
+    },
+    "subject_types": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::subject-type.subject-type",
+      "mappedBy": "work_card"
+    },
+    "work_type": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::work-type.work-type",
+      "inversedBy": "work_card"
+    },
+    "order": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::order.order",
+      "mappedBy": "work_card"
+    },
+    "user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "work_cards"
+    },
+    "executor": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::executor.executor",
+      "inversedBy": "work_cards"
+    }
+  }
+}

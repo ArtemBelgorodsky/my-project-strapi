@@ -1,0 +1,50 @@
+{
+  "kind": "collectionType",
+  "collectionName": "orders",
+  "info": {
+    "singularName": "order",
+    "pluralName": "orders",
+    "displayName": "order",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "publicatedAt": {
+      "type": "datetime",
+      "required": true
+    },
+    "work_card": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::work-card.work-card",
+      "inversedBy": "order"
+    },
+    "users_permissions_user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "order"
+    },
+    "executor": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::executor.executor",
+      "inversedBy": "order"
+    },
+    "done": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "review": {
+      "type": "text"
+    },
+    "rating": {
+      "type": "integer",
+      "required": true
+    }
+  }
+}
